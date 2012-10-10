@@ -1,0 +1,13 @@
+{% include 'catalog/menu.html' %}
+
+<h1>Оформить заказ</h1>
+
+{% if success %}
+	<p>{{ success }}</p>
+{% else %}
+	<form method="post">
+		{{ form.as_p }}
+		{% csrf_token %}
+		<input type="submit" value="Отправить">
+	</form>
+{% endif %}

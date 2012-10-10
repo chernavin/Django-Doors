@@ -1,0 +1,46 @@
+{% include 'catalog/menu.html' %}
+
+<h1>По бренду</h1>
+
+{% if catalog %}
+    <ul>
+    {% for door in catalog %}
+    <li style="overflow:hidden;">
+    	<h2>{{ door.title }}</h2>
+
+		{% load static %}
+		<img src="{% get_media_prefix %}{{ door.photo }}" align="left">
+
+		<table border="1">
+			<tr>
+				<th width="200">Бренд:</th>
+				<td>{{ door.brand.title }}</td>
+			</tr>
+
+			<tr>
+				<th>Описание:</th>
+				<td>{{ door.description }}</td>
+			</tr>
+
+			<tr>
+				<th>Цена:</th>
+				<td>{{ door.price }} руб.</td>
+			</tr>
+
+			<tr>
+				<th>Цвета:</th>
+				<td>{{ door.color_set.all|join:', ' }}</td>
+			</tr>
+
+			<tr>
+				<th>Размеры:</th>
+				<td>{{ door.size_set.all|join:', ' }}</td>
+			</tr>
+		</table>
+		<br><a href="{% url shop-cart-add door.id %}">Добавить в корзину</a>
+    </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Дверей не найдено.</p>
+{% endif %}

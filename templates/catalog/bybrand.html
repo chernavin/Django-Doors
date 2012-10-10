@@ -1,0 +1,13 @@
+{% include 'catalog/menu.html' %}
+
+<h1>По бренду</h1>
+
+{% if brand_list %}
+    <ul>
+    {% for brand in brand_list %}
+        <li><a href="{% url catalog-bybrand-id brand.id %}">{{ brand.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Брендов не найдено.</p>
+{% endif %}

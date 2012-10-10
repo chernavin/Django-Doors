@@ -1,0 +1,13 @@
+{% include 'catalog/menu.html' %}
+
+<h1>По размеру</h1>
+
+{% if size_list %}
+    <ul>
+    {% for size in size_list %}
+        <li><a href="{% url catalog-bysize-id size.id %}">{{ size.width }}x{{ size.height }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Размеров не найдено.</p>
+{% endif %}

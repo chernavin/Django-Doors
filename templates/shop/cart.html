@@ -1,0 +1,17 @@
+{% include 'catalog/menu.html' %}
+
+<h1>Корзина</h1>
+
+{% if door_list %}
+    <ul>
+    {% for door in door_list %}
+        <li><a href="{% url catalog-detail door.id %}">{{ door.title }} ({{ door.price }} руб.)</a>
+        	<a href="{% url shop-cart-delete door.id %}" style="color:red;">X</a>
+        </li>
+    {% endfor %}
+    </ul>
+
+    <br><a href="{% url shop-cart-order %}">Оформить заказ</a>
+{% else %}
+    <p>Корзина пуста.</p>
+{% endif %}

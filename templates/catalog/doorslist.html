@@ -1,0 +1,11 @@
+<h1>{{ h1 }}</h1>
+
+{% if catalog %}
+    <ul>
+    {% for door in catalog %}
+        <li><a href="{% url catalog-detail door.id %}">{{ door.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Дверей не найдено.</p>
+{% endif %}

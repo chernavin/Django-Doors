@@ -1,0 +1,8 @@
+<ul>
+	<li><a href="{% url catalog-index %}">Все двери</a></li>
+	<li><a href="{% url catalog-bybrand %}">По бренду</a></li>
+	<li><a href="{% url catalog-bycolor %}">По цвету</a></li>
+	<li><a href="{% url catalog-bysize %}">По размеру</a></li>
+</ul>
+
+<p>Корзина содержит дверей: {{ cart }}</p>

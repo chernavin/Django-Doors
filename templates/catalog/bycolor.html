@@ -1,0 +1,13 @@
+{% include 'catalog/menu.html' %}
+
+<h1>По цвету</h1>
+
+{% if color_list %}
+    <ul>
+    {% for color in color_list %}
+        <li><a href="{% url catalog-bycolor-id color.id %}">{{ color.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Цветов не найдено.</p>
+{% endif %}
